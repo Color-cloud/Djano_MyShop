@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_css %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block page_jq %}
+    <script type="text/javascript">
+        $(function () {
+            $('#to_buy').click(function () {
+                let sid = $('#sid').val();
+                let number = $('#number').val();
+                let uname = $('#myuser').text();
+                window.location.href = 'http://127.0.0.1:8000/order/order/?sid=' + sid +'&number='+number+'&uname='+ uname
+            });
+            $('#car_add').click(function () {
+                {% if uid %}
+                    let add_url = 'http://127.0.0.1:8000/shopcar/shopadd/';
+                    let data = {
+                        'shop_id':{{shop.shop_id}},
+                        'number': $('#number').val(),
+                    };
+                    $.post(add_url, data, function (result) {
+                        $('#car_count').text(result.count)
+                    });
+                    });
+                {% else %}
+                    window.location.href = "http://127.0.0.1:8000/user/denglu/"
+                    });
+                {% endif %}
+        })
+    </script>
+{% endblock %}
+
+{% block page_head %}
+    {% include 'home_top.html' %}
+    {% include 'home_search.html' %}
+{% endblock %}
+{% block page_main %}
+    <div style="background-color: #FF0000;height: 30px;width: 8000px;position: relative; margin-left: -300px"></div>
+    <div>
+        <div class="col-lg-3">
+            <img style="height: 300px ; width: 300px" src="/static/img/single/{{ img.shop_img_id }}.jpg">
+        </div>
+        <div class="col-lg-6">
+            <h2>{{ shop.name }}</h2>
+            <h2>{{ shop.sub_title }}</h2>
+            <h3 style="color: #FF0000">{{ shop.promote_price }}</h3>
+            <input type="hidden" id="sid" value={{ shop.shop_id }}>
+            <input type="number" id="number" value="1">
+            <button style="margin-top: 80px" id="to_buy">立即购买</button>
+            <button style="margin-left: 40px" id="car_add">加入购物车</button>
+        </div>
+    </div>
+{% endblock %}

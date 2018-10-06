@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_css %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block page_head %}
+    {% include 'home_search.html' %}
+{% endblock %}
+{% block page_main %}
+    <div style="position: relative;margin-left: -900px;height: 30px;width: 9000px;background-color: red"></div>
+    <div style="position: relative;margin-left: -900px;height: 60px;width: 9000px;background-color: white"></div>
+    {% include 'shops.html' %}
+{% endblock %}

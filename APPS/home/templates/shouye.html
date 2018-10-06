@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block page_css %}
+    <link href="{% static 'css/index.css' %}" rel="stylesheet" type="text/css">
+{% endblock %}
+{% block page_jq %}
+    <script src="{% static 'js/unslider.min.js' %}"></script>
+    <script src="{% static 'js/index.js' %}"></script>
+{% endblock %}
+
+{% block page_head %}
+    {% include 'home_top.html' %}
+    {% include 'home_search.html' %}
+{% endblock %}
+{% block page_main %}
+    {% include 'nav.html' %}
+    <div style="position: relative">
+        {% include 'LeftTable.html' %}
+        {% include 'banner.html' %}
+
+    </div>
+{% endblock %}
+{% block page_footer %}
+    {% include 'shops.html' %}
+{% endblock %}

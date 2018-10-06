@@ -1,0 +1,23 @@
+<div>
+    {% if request.user.is_authenticated %}
+        <div class="col-lg-3">
+            <span>欢迎来到天猫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="myuser">{{ request.user.username }}</span></span>
+            <a href="{% url 'dengchu' %}">登出</a>
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <span>购物车&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="car_count">{{ count }}</span><span>件</span>
+        </div>
+
+    {% else %}
+        <div class="col-lg-3">
+            <span>欢迎来到天猫&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <a href="{% url 'denglu' %}">登录</a>
+            <span>还没有账号?</span><a style="text-decoration: none" href="{% url 'zhuce' %}">立即注册!</a>
+        </div>
+        <div class="col-lg-6"></div>
+        <div class="col-lg-3">
+            <span>购物车&nbsp;&nbsp;&nbsp;&nbsp;</span><span id="car_count">0</span><span>件</span>
+        </div>
+    {% endif %}
+</div>

@@ -1,0 +1,10 @@
+{% for shop in shops %}
+    <a href="{% url 'shopdetail' %}?id={{ shop.shop_id }}">
+        <div class="clear" style="float: left ;margin-left: 50px">
+            <img src="/static/img/single/{{ shop.img }}.jpg/" style="width: 300px;height: 300px">
+            <p style="width: 300px">{{ shop.name }}</p>
+            <p style="color: #FF0000 ;size: 80px">{{ shop.promote_price }} </p>
+        </div>
+    </a>
+{% endfor %}
+

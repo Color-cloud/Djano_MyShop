@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录界面</title>
+</head>
+<body>
+{% if msg %}
+    <span style="color: red">{{ msg }}</span>
+{% endif %}
+<form action="#" method="post">
+    <span>请输入用户名</span><input type="text" name="srusername">
+    <span>&nbsp;&nbsp;&nbsp;请输入密码</span><input type="text" name="srpassword">
+    <input type="submit" value="登录">
+</form>
+</body>
+</html>

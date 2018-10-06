@@ -1,0 +1,23 @@
+<ul id="cate_id" style="z-index: 1 ;position: relative">
+    {% for i in Firsts %}
+        <li>
+            <a>{{ i.name }}</a>
+            <ul class="sub">
+                {% for j in i.Seconds %}
+                    <li>
+                    <div class="sub1">
+                        <a>{{ j.name }}</a>
+                    </div>
+                    <div class="sub2">
+                        {% for k in j.Thirts %}
+                            <a>{{ k.name }}</a>
+                        {% endfor %}
+                    </div>
+                {% endfor %}
+                </li>
+            </ul>
+        </li>
+    {% endfor %}
+
+
+</ul>

@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block page_head %}
+    <p><span>商品名称:</span>{{ shop.name }}</p>
+    <p><span>商品简介:</span>{{ shop.sub_title }}</p>
+    <p><span>收件人姓名:</span>{{ user.username }}</p>
+    <p><span>收件人地址:</span>{{ user.userprofile.desc }}</p>
+    <p><span>需支付金额:</span>{{ money }}</p>
+    <div><a href="http://127.0.0.1:8000/pay/alipay?money={{ money }}"  >
+        <button>立即支付</button>
+    </a></div>
+{% endblock %}
